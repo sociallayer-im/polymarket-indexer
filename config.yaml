@@ -1,0 +1,89 @@
+# yaml-language-server: $schema=./node_modules/envio/evm.schema.json
+name: envio-indexer
+networks:
+- id: 137
+  start_block: 50505492
+  contracts:
+  - name: ConditionalTokens
+    address:
+    - 0x4D97DCd97eC945f40cF65F87097ACe5EA0476045
+    handler: src/EventHandlers.ts
+    events:
+    - event: ApprovalForAll(address indexed owner, address indexed operator, bool approved)
+    - event: ConditionPreparation(bytes32 indexed conditionId, address indexed oracle, bytes32 indexed questionId, uint256 outcomeSlotCount)
+    - event: ConditionResolution(bytes32 indexed conditionId, address indexed oracle, bytes32 indexed questionId, uint256 outcomeSlotCount, uint256[] payoutNumerators)
+    - event: PayoutRedemption(address indexed redeemer, address indexed collateralToken, bytes32 indexed parentCollectionId, bytes32 conditionId, uint256[] indexSets, uint256 payout)
+    - event: PositionSplit(address indexed stakeholder, address collateralToken, bytes32 indexed parentCollectionId, bytes32 indexed conditionId, uint256[] partition, uint256 amount)
+    - event: PositionsMerge(address indexed stakeholder, address collateralToken, bytes32 indexed parentCollectionId, bytes32 indexed conditionId, uint256[] partition, uint256 amount)
+    - event: TransferBatch(address indexed operator, address indexed from, address indexed to, uint256[] ids, uint256[] values)
+    - event: TransferSingle(address indexed operator, address indexed from, address indexed to, uint256 id, uint256 value)
+    - event: URI(string value, uint256 indexed id)
+  - name: CTFExchange
+    address:
+    - 0x4bFb41d5B3570DeFd03C39a9A4D8dE6Bd8B8982E
+    handler: src/EventHandlers.ts
+    events:
+    - event: FeeCharged(address indexed receiver, uint256 tokenId, uint256 amount)
+    - event: NewAdmin(address indexed newAdminAddress, address indexed admin)
+    - event: NewOperator(address indexed newOperatorAddress, address indexed admin)
+    - event: OrderCancelled(bytes32 indexed orderHash)
+    - event: OrderFilled(bytes32 indexed orderHash, address indexed maker, address indexed taker, uint256 makerAssetId, uint256 takerAssetId, uint256 makerAmountFilled, uint256 takerAmountFilled, uint256 fee)
+    - event: OrdersMatched(bytes32 indexed takerOrderHash, address indexed takerOrderMaker, uint256 makerAssetId, uint256 takerAssetId, uint256 makerAmountFilled, uint256 takerAmountFilled)
+    - event: ProxyFactoryUpdated(address indexed oldProxyFactory, address indexed newProxyFactory)
+    - event: RemovedAdmin(address indexed removedAdmin, address indexed admin)
+    - event: RemovedOperator(address indexed removedOperator, address indexed admin)
+    - event: SafeFactoryUpdated(address indexed oldSafeFactory, address indexed newSafeFactory)
+    - event: TokenRegistered(uint256 indexed token0, uint256 indexed token1, bytes32 indexed conditionId)
+    - event: TradingPaused(address indexed pauser)
+    - event: TradingUnpaused(address indexed pauser)
+  - name: NegRiskCtfExchange
+    address:
+    - 0xC5d563A36AE78145C45a50134d48A1215220f80a
+    handler: src/EventHandlers.ts
+    events:
+    - event: FeeCharged(address indexed receiver, uint256 tokenId, uint256 amount)
+    - event: NewAdmin(address indexed newAdminAddress, address indexed admin)
+    - event: NewOperator(address indexed newOperatorAddress, address indexed admin)
+    - event: OrderCancelled(bytes32 indexed orderHash)
+    - event: OrderFilled(bytes32 indexed orderHash, address indexed maker, address indexed taker, uint256 makerAssetId, uint256 takerAssetId, uint256 makerAmountFilled, uint256 takerAmountFilled, uint256 fee)
+    - event: OrdersMatched(bytes32 indexed takerOrderHash, address indexed takerOrderMaker, uint256 makerAssetId, uint256 takerAssetId, uint256 makerAmountFilled, uint256 takerAmountFilled)
+    - event: ProxyFactoryUpdated(address indexed oldProxyFactory, address indexed newProxyFactory)
+    - event: RemovedAdmin(address indexed removedAdmin, address indexed admin)
+    - event: RemovedOperator(address indexed removedOperator, address indexed admin)
+    - event: SafeFactoryUpdated(address indexed oldSafeFactory, address indexed newSafeFactory)
+    - event: TokenRegistered(uint256 indexed token0, uint256 indexed token1, bytes32 indexed conditionId)
+    - event: TradingPaused(address indexed pauser)
+    - event: TradingUnpaused(address indexed pauser)
+  - name: UmaCtfAdapter
+    address:
+    - 0x2F5e3684cb1F318ec51b00Edba38d79Ac2c0aA9d
+    handler: src/EventHandlers.ts
+    events:
+    - event: AncillaryDataUpdated(bytes32 indexed questionID, address indexed owner, bytes update)
+    - event: NewAdmin(address indexed admin, address indexed newAdminAddress)
+    - event: QuestionEmergencyResolved(bytes32 indexed questionID, uint256[] payouts)
+    - event: QuestionFlagged(bytes32 indexed questionID)
+    - event: QuestionInitialized(bytes32 indexed questionID, uint256 indexed requestTimestamp, address indexed creator, bytes ancillaryData, address rewardToken, uint256 reward, uint256 proposalBond)
+    - event: QuestionPaused(bytes32 indexed questionID)
+    - event: QuestionReset(bytes32 indexed questionID)
+    - event: QuestionResolved(bytes32 indexed questionID, int256 indexed settledPrice, uint256[] payouts)
+    - event: QuestionUnflagged(bytes32 indexed questionID)
+    - event: QuestionUnpaused(bytes32 indexed questionID)
+    - event: RemovedAdmin(address indexed admin, address indexed removedAdmin)
+  - name: UmaCtfAdapterV2
+    address:
+    - 0x6A9D222616C90FcA5754cd1333cFD9b7fb6a4F74
+    handler: src/EventHandlers.ts
+    events:
+    - event: AncillaryDataUpdated(bytes32 indexed questionID, address indexed owner, bytes update)
+    - event: NewAdmin(address indexed admin, address indexed newAdminAddress)
+    - event: QuestionEmergencyResolved(bytes32 indexed questionID, uint256[] payouts)
+    - event: QuestionFlagged(bytes32 indexed questionID)
+    - event: QuestionInitialized(bytes32 indexed questionID, uint256 indexed requestTimestamp, address indexed creator, bytes ancillaryData, address rewardToken, uint256 reward, uint256 proposalBond)
+    - event: QuestionPaused(bytes32 indexed questionID)
+    - event: QuestionReset(bytes32 indexed questionID)
+    - event: QuestionResolved(bytes32 indexed questionID, int256 indexed settledPrice, uint256[] payouts)
+    - event: QuestionUnpaused(bytes32 indexed questionID)
+    - event: RemovedAdmin(address indexed admin, address indexed removedAdmin)
+unordered_multichain_mode: true
+preload_handlers: true

@@ -1,0 +1,439 @@
+type CTFExchange_FeeCharged {
+  id: ID!
+  receiver: String!
+  tokenId: BigInt!
+  amount: BigInt!
+  blockTime: Int!
+}
+
+type CTFExchange_NewAdmin {
+  id: ID!
+  newAdminAddress: String!
+  admin: String!
+  blockTime: Int!
+}
+
+type CTFExchange_NewOperator {
+  id: ID!
+  newOperatorAddress: String!
+  admin: String!
+  blockTime: Int!
+}
+
+type CTFExchange_OrderCancelled {
+  id: ID!
+  orderHash: String!
+  blockTime: Int!
+}
+
+type CTFExchange_OrderFilled {
+  id: ID!
+  orderHash: String!
+  maker: String!
+  taker: String!
+  makerAssetId: BigInt!
+  takerAssetId: BigInt!
+  makerAmountFilled: BigInt!
+  takerAmountFilled: BigInt!
+  fee: BigInt!
+  blockTime: Int!
+}
+
+type CTFExchange_OrdersMatched {
+  id: ID!
+  takerOrderHash: String!
+  takerOrderMaker: String!
+  makerAssetId: BigInt!
+  takerAssetId: BigInt!
+  makerAmountFilled: BigInt!
+  takerAmountFilled: BigInt!
+  blockTime: Int!
+}
+
+type CTFExchange_ProxyFactoryUpdated {
+  id: ID!
+  oldProxyFactory: String!
+  newProxyFactory: String!
+  blockTime: Int!
+}
+
+type CTFExchange_RemovedAdmin {
+  id: ID!
+  removedAdmin: String!
+  admin: String!
+  blockTime: Int!
+}
+
+type CTFExchange_RemovedOperator {
+  id: ID!
+  removedOperator: String!
+  admin: String!
+  blockTime: Int!
+}
+
+type CTFExchange_SafeFactoryUpdated {
+  id: ID!
+  oldSafeFactory: String!
+  newSafeFactory: String!
+  blockTime: Int!
+}
+
+type CTFExchange_TokenRegistered {
+  id: ID!
+  token0: BigInt!
+  token1: BigInt!
+  conditionId: String!
+  blockTime: Int!
+}
+
+type CTFExchange_TradingPaused {
+  id: ID!
+  pauser: String!
+  blockTime: Int!
+}
+
+type CTFExchange_TradingUnpaused {
+  id: ID!
+  pauser: String!
+  blockTime: Int!
+}
+
+type ConditionalTokens_ApprovalForAll {
+  id: ID!
+  owner: String!
+  operator: String!
+  approved: Boolean!
+  blockTime: Int!
+}
+
+type ConditionalTokens_ConditionPreparation {
+  id: ID!
+  conditionId: String!
+  oracle: String!
+  questionId: String!
+  outcomeSlotCount: BigInt!
+  blockTime: Int!
+}
+
+type ConditionalTokens_ConditionResolution {
+  id: ID!
+  conditionId: String!
+  oracle: String!
+  questionId: String!
+  outcomeSlotCount: BigInt!
+  payoutNumerators: [BigInt!]!
+  blockTime: Int!
+}
+
+type ConditionalTokens_PayoutRedemption {
+  id: ID!
+  redeemer: String!
+  collateralToken: String!
+  parentCollectionId: String!
+  conditionId: String!
+  indexSets: [BigInt!]!
+  payout: BigInt!
+  blockTime: Int!
+}
+
+type ConditionalTokens_PositionSplit {
+  id: ID!
+  stakeholder: String!
+  collateralToken: String!
+  parentCollectionId: String!
+  conditionId: String!
+  partition: [BigInt!]!
+  amount: BigInt!
+  blockTime: Int!
+}
+
+type ConditionalTokens_PositionsMerge {
+  id: ID!
+  stakeholder: String!
+  collateralToken: String!
+  parentCollectionId: String!
+  conditionId: String!
+  partition: [BigInt!]!
+  amount: BigInt!
+  blockTime: Int!
+}
+
+type ConditionalTokens_TransferBatch {
+  id: ID!
+  operator: String!
+  from: String!
+  to: String!
+  ids: [BigInt!]!
+  values: [BigInt!]!
+  blockTime: Int!
+}
+
+type ConditionalTokens_TransferSingle {
+  id: ID!
+  operator: String!
+  from: String!
+  to: String!
+  event_id: BigInt!
+  value: BigInt!
+  blockTime: Int!
+}
+
+type ConditionalTokens_URI {
+  id: ID!
+  value: String!
+  event_id: BigInt!
+  blockTime: Int!
+}
+
+type NegRiskCtfExchange_FeeCharged {
+  id: ID!
+  receiver: String!
+  tokenId: BigInt!
+  amount: BigInt!
+  blockTime: Int!
+}
+
+type NegRiskCtfExchange_NewAdmin {
+  id: ID!
+  newAdminAddress: String!
+  admin: String!
+  blockTime: Int!
+}
+
+type NegRiskCtfExchange_NewOperator {
+  id: ID!
+  newOperatorAddress: String!
+  admin: String!
+  blockTime: Int!
+}
+
+type NegRiskCtfExchange_OrderCancelled {
+  id: ID!
+  orderHash: String!
+  blockTime: Int!
+}
+
+type NegRiskCtfExchange_OrderFilled {
+  id: ID!
+  orderHash: String!
+  maker: String!
+  taker: String!
+  makerAssetId: BigInt!
+  takerAssetId: BigInt!
+  makerAmountFilled: BigInt!
+  takerAmountFilled: BigInt!
+  fee: BigInt!
+  blockTime: Int!
+}
+
+type NegRiskCtfExchange_OrdersMatched {
+  id: ID!
+  takerOrderHash: String!
+  takerOrderMaker: String!
+  makerAssetId: BigInt!
+  takerAssetId: BigInt!
+  makerAmountFilled: BigInt!
+  takerAmountFilled: BigInt!
+  blockTime: Int!
+}
+
+type NegRiskCtfExchange_ProxyFactoryUpdated {
+  id: ID!
+  oldProxyFactory: String!
+  newProxyFactory: String!
+  blockTime: Int!
+}
+
+type NegRiskCtfExchange_RemovedAdmin {
+  id: ID!
+  removedAdmin: String!
+  admin: String!
+  blockTime: Int!
+}
+
+type NegRiskCtfExchange_RemovedOperator {
+  id: ID!
+  removedOperator: String!
+  admin: String!
+  blockTime: Int!
+}
+
+type NegRiskCtfExchange_SafeFactoryUpdated {
+  id: ID!
+  oldSafeFactory: String!
+  newSafeFactory: String!
+  blockTime: Int!
+}
+
+type NegRiskCtfExchange_TokenRegistered {
+  id: ID!
+  token0: BigInt!
+  token1: BigInt!
+  conditionId: String!
+  blockTime: Int!
+}
+
+type NegRiskCtfExchange_TradingPaused {
+  id: ID!
+  pauser: String!
+  blockTime: Int!
+}
+
+type NegRiskCtfExchange_TradingUnpaused {
+  id: ID!
+  pauser: String!
+  blockTime: Int!
+}
+
+type UmaCtfAdapter_AncillaryDataUpdated {
+  id: ID!
+  questionID: String!
+  owner: String!
+  update: String!
+  blockTime: Int!
+}
+
+type UmaCtfAdapter_NewAdmin {
+  id: ID!
+  admin: String!
+  newAdminAddress: String!
+  blockTime: Int!
+}
+
+type UmaCtfAdapter_QuestionEmergencyResolved {
+  id: ID!
+  questionID: String!
+  payouts: [BigInt!]!
+  blockTime: Int!
+}
+
+type UmaCtfAdapter_QuestionFlagged {
+  id: ID!
+  questionID: String!
+  blockTime: Int!
+}
+
+type UmaCtfAdapter_QuestionInitialized {
+  id: ID!
+  questionID: String!
+  requestTimestamp: BigInt!
+  creator: String!
+  ancillaryData: String!
+  rewardToken: String!
+  reward: BigInt!
+  proposalBond: BigInt!
+  blockTime: Int!
+}
+
+type UmaCtfAdapter_QuestionPaused {
+  id: ID!
+  questionID: String!
+  blockTime: Int!
+}
+
+type UmaCtfAdapter_QuestionReset {
+  id: ID!
+  questionID: String!
+  blockTime: Int!
+}
+
+type UmaCtfAdapter_QuestionResolved {
+  id: ID!
+  questionID: String!
+  settledPrice: BigInt!
+  payouts: [BigInt!]!
+  blockTime: Int!
+}
+
+type UmaCtfAdapter_QuestionUnflagged {
+  id: ID!
+  questionID: String!
+  blockTime: Int!
+}
+
+type UmaCtfAdapter_QuestionUnpaused {
+  id: ID!
+  questionID: String!
+  blockTime: Int!
+}
+
+type UmaCtfAdapter_RemovedAdmin {
+  id: ID!
+  admin: String!
+  removedAdmin: String!
+  blockTime: Int!
+}
+
+type UmaCtfAdapterV2_AncillaryDataUpdated {
+  id: ID!
+  questionID: String!
+  owner: String!
+  update: String!
+  blockTime: Int!
+}
+
+type UmaCtfAdapterV2_NewAdmin {
+  id: ID!
+  admin: String!
+  newAdminAddress: String!
+  blockTime: Int!
+}
+
+type UmaCtfAdapterV2_QuestionEmergencyResolved {
+  id: ID!
+  questionID: String!
+  payouts: [BigInt!]!
+  blockTime: Int!
+}
+
+type UmaCtfAdapterV2_QuestionFlagged {
+  id: ID!
+  questionID: String!
+  blockTime: Int!
+}
+
+type UmaCtfAdapterV2_QuestionInitialized {
+  id: ID!
+  questionID: String!
+  requestTimestamp: BigInt!
+  creator: String!
+  ancillaryData: String!
+  rewardToken: String!
+  reward: BigInt!
+  proposalBond: BigInt!
+  blockTime: Int!
+}
+
+type UmaCtfAdapterV2_QuestionPaused {
+  id: ID!
+  questionID: String!
+  blockTime: Int!
+}
+
+type UmaCtfAdapterV2_QuestionReset {
+  id: ID!
+  questionID: String!
+  blockTime: Int!
+}
+
+type UmaCtfAdapterV2_QuestionResolved {
+  id: ID!
+  questionID: String!
+  settledPrice: BigInt!
+  payouts: [BigInt!]!
+  blockTime: Int!
+}
+
+type UmaCtfAdapterV2_QuestionUnpaused {
+  id: ID!
+  questionID: String!
+  blockTime: Int!
+}
+
+type UmaCtfAdapterV2_RemovedAdmin {
+  id: ID!
+  admin: String!
+  removedAdmin: String!
+  blockTime: Int!
+}
+
