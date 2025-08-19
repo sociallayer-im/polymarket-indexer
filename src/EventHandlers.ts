@@ -253,6 +253,10 @@ ConditionalTokens.ConditionPreparation.handler(async ({ event, context }) => {
 });
 
 ConditionalTokens.ConditionResolution.handler(async ({ event, context }) => {
+  if (!context.ConditionalTokens_ConditionPreparation.get(event.params.conditionId)) {
+    return;
+  }
+
   const entity: ConditionalTokens_ConditionResolution = {
     id: `${event.chainId}_${event.block.number}_${event.logIndex}`,
     conditionId: event.params.conditionId,
@@ -267,6 +271,10 @@ ConditionalTokens.ConditionResolution.handler(async ({ event, context }) => {
 });
 
 ConditionalTokens.PayoutRedemption.handler(async ({ event, context }) => {
+  if (!context.ConditionalTokens_ConditionPreparation.get(event.params.conditionId)) {
+    return;
+  }
+  
   const entity: ConditionalTokens_PayoutRedemption = {
     id: `${event.chainId}_${event.block.number}_${event.logIndex}`,
     redeemer: event.params.redeemer,
@@ -282,6 +290,10 @@ ConditionalTokens.PayoutRedemption.handler(async ({ event, context }) => {
 });
 
 ConditionalTokens.PositionSplit.handler(async ({ event, context }) => {
+  if (!context.ConditionalTokens_ConditionPreparation.get(event.params.conditionId)) {
+    return;
+  }
+  
   const entity: ConditionalTokens_PositionSplit = {
     id: `${event.chainId}_${event.block.number}_${event.logIndex}`,
     stakeholder: event.params.stakeholder,
@@ -297,6 +309,10 @@ ConditionalTokens.PositionSplit.handler(async ({ event, context }) => {
 });
 
 ConditionalTokens.PositionsMerge.handler(async ({ event, context }) => {
+  if (!context.ConditionalTokens_ConditionPreparation.get(event.params.conditionId)) {
+    return;
+  }
+  
   const entity: ConditionalTokens_PositionsMerge = {
     id: `${event.chainId}_${event.block.number}_${event.logIndex}`,
     stakeholder: event.params.stakeholder,
